@@ -4,15 +4,16 @@ import CodeMirror from '@uiw/react-codemirror';
 import ACTIONS from '../Actions';
 import { draculaInit } from '@uiw/codemirror-theme-dracula';
 import { tags as t } from '@lezer/highlight';
-import { javascript } from '@codemirror/lang-javascript';
 
-export default function Code({ socketRef, roomID , onCodeChange }) {
+export default function Code({ socketRef, roomID , onCodeChange , setSyncedCode }) {
 
     const [codeValue , setCodeValue] = useState()
 
     const onChange = React.useCallback((value, viewUpdate) => {
-        console.log(value);
+        // console.log(value);
+        setSyncedCode(value)
         // onCodeChange(codeValue)
+
         socketRef.current.emit(ACTIONS.CODE_CHANGE, {
             roomID,
             value

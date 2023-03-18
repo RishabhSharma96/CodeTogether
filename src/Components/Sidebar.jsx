@@ -13,9 +13,9 @@ export default function Sidebar() {
     const reactNavigator = useNavigate()
     const socketRef = useRef(null)
     const params = useParams()
-    const codeRef = useRef(null)
 
     const [clients, setClients] = useState([])
+    const [syncedCode , setSyncedCode] = useState("")
 
     useEffect(() => {
         const init = async () => {
@@ -82,6 +82,17 @@ export default function Sidebar() {
         }
     }
 
+    const handleCopyCode = async () => {
+        try {
+            await navigator.clipboard.writeText(syncedCode)
+            toast.success("Code copied to clipboard")
+        }
+        catch (err) {
+            toast.error("Could not copy Code")
+            console.log(err)
+        }
+    }
+
     const handleLeave = () => {
         localStorage.removeItem("username")
         toast.success("Logged out Successfully")
@@ -123,7 +134,7 @@ export default function Sidebar() {
                             </div>
                         </div>
                         <div className="sidebar-btn-2">
-                            <div className="uiverse"
+                            <div className="uiverse" onClick={handleCopyCode}
                                 style={{ backgroundColor: "white", color: "black" }}>
                                 <span className="tooltip">Copy Code</span>
                                 <span>
@@ -143,11 +154,7 @@ export default function Sidebar() {
 
             </div>
 
-            <Code socketRef={socketRef} roomID={params.id}
-            // onCodeChange = {(codeValue) => {
-            //     codeRef.current = codeValue
-            // }}
-            />
+            <Code socketRef={socketRef} roomID={params.id} setSyncedCode={setSyncedCode}/>
 
         </div>
     )

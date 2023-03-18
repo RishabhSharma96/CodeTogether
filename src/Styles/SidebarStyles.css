@@ -421,3 +421,35 @@ svg:hover .tooltip {
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
+@media(max-width : 600px){
+    .uiverse{
+        width: 6rem;
+        height: 2rem;
+        padding: 0;
+    }
+    .uiverse-btn-info{
+        font-size: 0.8rem;
+    }
+    #sidebar-heading{
+        font-size: 0.9rem;
+    }
+    .connected{
+        font-size: 0.6rem;
+    }
+    .peoplename{
+        font-size: 0.8rem;
+    }
+    .peoplelogo{
+        margin-bottom: 10px;
+    }
+    .sidebar{
+        width: 7rem;
+    }
+    .typewriter{
+        display: none;
+    }
+    .people{
+        justify-content: center;
+    }
+}

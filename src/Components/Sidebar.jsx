@@ -15,7 +15,7 @@ export default function Sidebar() {
     const params = useParams()
 
     const [clients, setClients] = useState([])
-    const [syncedCode , setSyncedCode] = useState("")
+    const [syncedCode, setSyncedCode] = useState("")
 
     useEffect(() => {
         const init = async () => {
@@ -102,6 +102,7 @@ export default function Sidebar() {
     return (
         <div id="main-codeScreen">
             <div className='sidebar'>
+
                 <div>
                     <div id="sidebar-heading">CodeTogether</div>
                     <div className="connected-components">
@@ -128,7 +129,7 @@ export default function Sidebar() {
                         <div className="sidebar-btn-1">
                             <div className="uiverse" onClick={handleCopyID}>
                                 <span className="tooltip">Copy ID</span>
-                                <span>
+                                <span className='uiverse-btn-info'>
                                     Copy Room ID
                                 </span>
                             </div>
@@ -137,14 +138,14 @@ export default function Sidebar() {
                             <div className="uiverse" onClick={handleCopyCode}
                                 style={{ backgroundColor: "white", color: "black" }}>
                                 <span className="tooltip">Copy Code</span>
-                                <span>
+                                <span className='uiverse-btn-info'>
                                     Copy Code
                                 </span>
                             </div>
                         </div>
                         <div className="sidebar-btn-2">
                             <div className="uiverse" onClick={handleLeave}>
-                                <span>
+                                <span className='uiverse-btn-info'>
                                     Leave Room
                                 </span>
                             </div>
@@ -154,7 +155,7 @@ export default function Sidebar() {
 
             </div>
 
-            <Code socketRef={socketRef} roomID={params.id} setSyncedCode={setSyncedCode}/>
+            <Code socketRef={socketRef} roomID={params.id} setSyncedCode={setSyncedCode} />
 
         </div>
     )

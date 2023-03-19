@@ -7,5 +7,5 @@ export const initSocket = async () => {
         timeout: 10000,
         transports: ['websocket'],
     }
-    return io(`https://codetogether-2igd.onrender.com`, options)
+    return io(``, options)
 }

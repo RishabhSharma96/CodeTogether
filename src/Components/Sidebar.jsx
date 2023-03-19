@@ -41,11 +41,11 @@ export default function Sidebar() {
                 }
                 setClients(clients)
 
-                // socketRef.current.emit(ACTIONS.SYNC_CODE , {
-                //     code : codeRef.current,
-                //     socketID
-                // })
-                // console.log(codeRef.current)
+                socketRef.current.emit(ACTIONS.SYNC_CODE , {
+                    code : syncedCode,
+                    socketID
+                })
+                console.log("sdsd",syncedCode)
 
             })
 

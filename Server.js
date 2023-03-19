@@ -43,12 +43,12 @@ io.on('connection', (socket) => {
         })
     })
 
-    // socket.on(ACTIONS.SYNC_CODE , ({code , socketID}) => {
-    //     socket.to(socketID).emit(ACTIONS.CODE_CHANGE , {
-    //         code
-    //     })
-    //     console.log(code)
-    // })
+    socket.on(ACTIONS.SYNC_CODE , ({code , socketID}) => {
+        socket.to(socketID).emit(ACTIONS.CODE_CHANGE , {
+            code
+        })
+        console.log(code)
+    })
 
     socket.on('disconnecting' , () => {
         const rooms = [...socket.rooms]

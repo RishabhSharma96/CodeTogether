@@ -29,7 +29,7 @@ export default function Code({ socketRef, roomID , onCodeChange , setSyncedCode 
             socketRef.current.off(ACTIONS.CODE_CHANGE)
         }
 
-    }, [socketRef.current]);
+    }, []);
 
     return (
         <div id='code-editor'>
